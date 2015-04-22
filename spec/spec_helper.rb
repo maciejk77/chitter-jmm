@@ -1,4 +1,4 @@
-require '.app/server'
+require './app/server'
 require 'capybara/rspec'
 
 Capybara.app = Chitter
