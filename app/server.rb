@@ -10,6 +10,7 @@ require './app/user'
 DataMapper.finalize
 
 DataMapper.auto_upgrade!
+# DataMapper.auto_migrate!
 
 # new
 class Chitter < Sinatra::Base
@@ -22,11 +23,13 @@ class Chitter < Sinatra::Base
   end
 
   post('/users/new') do
-    p params[:email]
-    p params[:handle]
-    p params[:name]
-    p params[:password]
-    p params[:email]
+    user = User.create(
+      :email => params[:email],
+      :handle => params[:handle],
+      :name => params[:name],
+      :password => params[:password],
+      ) 
+    p user.email
     redirect to('/')
   end
 end
