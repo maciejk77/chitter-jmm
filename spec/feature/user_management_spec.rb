@@ -1,4 +1,5 @@
 require 'spec_helper'
+require './app/user'
 
 feature 'user can sign up' do
   scenario 'from the homepage' do
@@ -17,7 +18,7 @@ feature 'user can sign up' do
     fill_in :name, with: name
     fill_in :password, with: password
     fill_in :password_confirmation, with: password_confirmation
-    click('Register')
+    click_button('Register')
   end
 
   # user goes to the homepage
